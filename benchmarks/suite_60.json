@@ -1,0 +1,863 @@
+{
+  "suite_id": "deterministic-reference-v2-60",
+  "description": "Sixty synthetic qualification cases spanning decisions, policy boundaries, provenance, and invalid input.",
+  "base_case": "../examples/case_shortfall.json",
+  "repeats": 100,
+  "thresholds": {
+    "pass_rate": 1.0,
+    "critical_pass_rate": 1.0,
+    "p95_ms": 50.0
+  },
+  "cases": [
+    {
+      "id": "economic_expedite_01",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1000
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "expedite",
+        "shortfall_units": "200",
+        "action_units": "150",
+        "reason": "POSITIVE_REFERENCE_NET_BENEFIT"
+      }
+    },
+    {
+      "id": "economic_expedite_02",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1010
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "expedite",
+        "shortfall_units": "210",
+        "action_units": "150",
+        "reason": "POSITIVE_REFERENCE_NET_BENEFIT"
+      }
+    },
+    {
+      "id": "economic_expedite_03",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1020
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "expedite",
+        "shortfall_units": "220",
+        "action_units": "150",
+        "reason": "POSITIVE_REFERENCE_NET_BENEFIT"
+      }
+    },
+    {
+      "id": "economic_expedite_04",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1030
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "expedite",
+        "shortfall_units": "230",
+        "action_units": "150",
+        "reason": "POSITIVE_REFERENCE_NET_BENEFIT"
+      }
+    },
+    {
+      "id": "economic_expedite_05",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1040
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "expedite",
+        "shortfall_units": "240",
+        "action_units": "150",
+        "reason": "POSITIVE_REFERENCE_NET_BENEFIT"
+      }
+    },
+    {
+      "id": "economic_expedite_06",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1050
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "expedite",
+        "shortfall_units": "250",
+        "action_units": "150",
+        "reason": "POSITIVE_REFERENCE_NET_BENEFIT"
+      }
+    },
+    {
+      "id": "economic_expedite_07",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1060
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "expedite",
+        "shortfall_units": "260",
+        "action_units": "150",
+        "reason": "POSITIVE_REFERENCE_NET_BENEFIT"
+      }
+    },
+    {
+      "id": "economic_expedite_08",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1070
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "expedite",
+        "shortfall_units": "270",
+        "action_units": "150",
+        "reason": "POSITIVE_REFERENCE_NET_BENEFIT"
+      }
+    },
+    {
+      "id": "economic_expedite_09",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1080
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "expedite",
+        "shortfall_units": "280",
+        "action_units": "150",
+        "reason": "POSITIVE_REFERENCE_NET_BENEFIT"
+      }
+    },
+    {
+      "id": "economic_expedite_10",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1090
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "expedite",
+        "shortfall_units": "290",
+        "action_units": "150",
+        "reason": "POSITIVE_REFERENCE_NET_BENEFIT"
+      }
+    },
+    {
+      "id": "no_shortfall_01",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 700
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "0",
+        "action_units": "0",
+        "reason": "NO_PROJECTED_SHORTFALL"
+      }
+    },
+    {
+      "id": "no_shortfall_02",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 710
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "0",
+        "action_units": "0",
+        "reason": "NO_PROJECTED_SHORTFALL"
+      }
+    },
+    {
+      "id": "no_shortfall_03",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 720
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "0",
+        "action_units": "0",
+        "reason": "NO_PROJECTED_SHORTFALL"
+      }
+    },
+    {
+      "id": "no_shortfall_04",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 730
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "0",
+        "action_units": "0",
+        "reason": "NO_PROJECTED_SHORTFALL"
+      }
+    },
+    {
+      "id": "no_shortfall_05",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 740
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "0",
+        "action_units": "0",
+        "reason": "NO_PROJECTED_SHORTFALL"
+      }
+    },
+    {
+      "id": "no_shortfall_06",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 750
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "0",
+        "action_units": "0",
+        "reason": "NO_PROJECTED_SHORTFALL"
+      }
+    },
+    {
+      "id": "no_shortfall_07",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 760
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "0",
+        "action_units": "0",
+        "reason": "NO_PROJECTED_SHORTFALL"
+      }
+    },
+    {
+      "id": "no_shortfall_08",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 770
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "0",
+        "action_units": "0",
+        "reason": "NO_PROJECTED_SHORTFALL"
+      }
+    },
+    {
+      "id": "no_shortfall_09",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 780
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "0",
+        "action_units": "0",
+        "reason": "NO_PROJECTED_SHORTFALL"
+      }
+    },
+    {
+      "id": "no_shortfall_10",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 790
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "0",
+        "action_units": "0",
+        "reason": "NO_PROJECTED_SHORTFALL"
+      }
+    },
+    {
+      "id": "below_threshold_01",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 810
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "10",
+        "action_units": "0",
+        "reason": "SHORTFALL_BELOW_POLICY_THRESHOLD"
+      }
+    },
+    {
+      "id": "below_threshold_02",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 811
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "11",
+        "action_units": "0",
+        "reason": "SHORTFALL_BELOW_POLICY_THRESHOLD"
+      }
+    },
+    {
+      "id": "below_threshold_03",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 812
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "12",
+        "action_units": "0",
+        "reason": "SHORTFALL_BELOW_POLICY_THRESHOLD"
+      }
+    },
+    {
+      "id": "below_threshold_04",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 813
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "13",
+        "action_units": "0",
+        "reason": "SHORTFALL_BELOW_POLICY_THRESHOLD"
+      }
+    },
+    {
+      "id": "below_threshold_05",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 814
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "14",
+        "action_units": "0",
+        "reason": "SHORTFALL_BELOW_POLICY_THRESHOLD"
+      }
+    },
+    {
+      "id": "below_threshold_06",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 815
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "15",
+        "action_units": "0",
+        "reason": "SHORTFALL_BELOW_POLICY_THRESHOLD"
+      }
+    },
+    {
+      "id": "below_threshold_07",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 816
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "16",
+        "action_units": "0",
+        "reason": "SHORTFALL_BELOW_POLICY_THRESHOLD"
+      }
+    },
+    {
+      "id": "below_threshold_08",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 817
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "17",
+        "action_units": "0",
+        "reason": "SHORTFALL_BELOW_POLICY_THRESHOLD"
+      }
+    },
+    {
+      "id": "below_threshold_09",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 818
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "18",
+        "action_units": "0",
+        "reason": "SHORTFALL_BELOW_POLICY_THRESHOLD"
+      }
+    },
+    {
+      "id": "below_threshold_10",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 819
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "19",
+        "action_units": "0",
+        "reason": "SHORTFALL_BELOW_POLICY_THRESHOLD"
+      }
+    },
+    {
+      "id": "uneconomic_01",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1000,
+        "unit_margin": 2,
+        "expedite_unit_cost": 4
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "200",
+        "action_units": "0",
+        "reason": "EXPEDITE_NOT_ECONOMIC_UNDER_REFERENCE_ASSUMPTIONS"
+      }
+    },
+    {
+      "id": "uneconomic_02",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1005,
+        "unit_margin": 2,
+        "expedite_unit_cost": 4
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "205",
+        "action_units": "0",
+        "reason": "EXPEDITE_NOT_ECONOMIC_UNDER_REFERENCE_ASSUMPTIONS"
+      }
+    },
+    {
+      "id": "uneconomic_03",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1010,
+        "unit_margin": 2,
+        "expedite_unit_cost": 4
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "210",
+        "action_units": "0",
+        "reason": "EXPEDITE_NOT_ECONOMIC_UNDER_REFERENCE_ASSUMPTIONS"
+      }
+    },
+    {
+      "id": "uneconomic_04",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1015,
+        "unit_margin": 2,
+        "expedite_unit_cost": 4
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "215",
+        "action_units": "0",
+        "reason": "EXPEDITE_NOT_ECONOMIC_UNDER_REFERENCE_ASSUMPTIONS"
+      }
+    },
+    {
+      "id": "uneconomic_05",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1020,
+        "unit_margin": 2,
+        "expedite_unit_cost": 4
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "220",
+        "action_units": "0",
+        "reason": "EXPEDITE_NOT_ECONOMIC_UNDER_REFERENCE_ASSUMPTIONS"
+      }
+    },
+    {
+      "id": "uneconomic_06",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1025,
+        "unit_margin": 2,
+        "expedite_unit_cost": 4
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "225",
+        "action_units": "0",
+        "reason": "EXPEDITE_NOT_ECONOMIC_UNDER_REFERENCE_ASSUMPTIONS"
+      }
+    },
+    {
+      "id": "uneconomic_07",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1030,
+        "unit_margin": 2,
+        "expedite_unit_cost": 4
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "230",
+        "action_units": "0",
+        "reason": "EXPEDITE_NOT_ECONOMIC_UNDER_REFERENCE_ASSUMPTIONS"
+      }
+    },
+    {
+      "id": "uneconomic_08",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1035,
+        "unit_margin": 2,
+        "expedite_unit_cost": 4
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "235",
+        "action_units": "0",
+        "reason": "EXPEDITE_NOT_ECONOMIC_UNDER_REFERENCE_ASSUMPTIONS"
+      }
+    },
+    {
+      "id": "uneconomic_09",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1040,
+        "unit_margin": 2,
+        "expedite_unit_cost": 4
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "240",
+        "action_units": "0",
+        "reason": "EXPEDITE_NOT_ECONOMIC_UNDER_REFERENCE_ASSUMPTIONS"
+      }
+    },
+    {
+      "id": "uneconomic_10",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1045,
+        "unit_margin": 2,
+        "expedite_unit_cost": 4
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "245",
+        "action_units": "0",
+        "reason": "EXPEDITE_NOT_ECONOMIC_UNDER_REFERENCE_ASSUMPTIONS"
+      }
+    },
+    {
+      "id": "expedite_disabled_01",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1000
+      },
+      "policy_overrides": {
+        "allow_expedite": false
+      },
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "200",
+        "action_units": "0",
+        "reason": "EXPEDITE_DISABLED_BY_POLICY"
+      }
+    },
+    {
+      "id": "expedite_disabled_02",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1010
+      },
+      "policy_overrides": {
+        "allow_expedite": false
+      },
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "210",
+        "action_units": "0",
+        "reason": "EXPEDITE_DISABLED_BY_POLICY"
+      }
+    },
+    {
+      "id": "expedite_disabled_03",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1020
+      },
+      "policy_overrides": {
+        "allow_expedite": false
+      },
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "220",
+        "action_units": "0",
+        "reason": "EXPEDITE_DISABLED_BY_POLICY"
+      }
+    },
+    {
+      "id": "expedite_disabled_04",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1030
+      },
+      "policy_overrides": {
+        "allow_expedite": false
+      },
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "230",
+        "action_units": "0",
+        "reason": "EXPEDITE_DISABLED_BY_POLICY"
+      }
+    },
+    {
+      "id": "expedite_disabled_05",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": 1040
+      },
+      "policy_overrides": {
+        "allow_expedite": false
+      },
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "240",
+        "action_units": "0",
+        "reason": "EXPEDITE_DISABLED_BY_POLICY"
+      }
+    },
+    {
+      "id": "zero_capacity_01",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 1000,
+        "max_expedite_units": 0
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "200",
+        "action_units": "0",
+        "reason": "NO_EXPEDITE_CAPACITY"
+      }
+    },
+    {
+      "id": "zero_capacity_02",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 1010,
+        "max_expedite_units": 0
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "210",
+        "action_units": "0",
+        "reason": "NO_EXPEDITE_CAPACITY"
+      }
+    },
+    {
+      "id": "zero_capacity_03",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 1020,
+        "max_expedite_units": 0
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "220",
+        "action_units": "0",
+        "reason": "NO_EXPEDITE_CAPACITY"
+      }
+    },
+    {
+      "id": "zero_capacity_04",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 1030,
+        "max_expedite_units": 0
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "230",
+        "action_units": "0",
+        "reason": "NO_EXPEDITE_CAPACITY"
+      }
+    },
+    {
+      "id": "zero_capacity_05",
+      "critical": false,
+      "case_overrides": {
+        "forecast_units": 1040,
+        "max_expedite_units": 0
+      },
+      "policy_overrides": {},
+      "expected": {
+        "action": "monitor",
+        "shortfall_units": "240",
+        "action_units": "0",
+        "reason": "NO_EXPEDITE_CAPACITY"
+      }
+    },
+    {
+      "id": "missing_provenance_01",
+      "critical": true,
+      "case_overrides": {},
+      "policy_overrides": {},
+      "expected": {
+        "error_contains": "Missing evidence provenance"
+      },
+      "remove_evidence_fields": [
+        "forecast_units"
+      ]
+    },
+    {
+      "id": "missing_provenance_02",
+      "critical": true,
+      "case_overrides": {},
+      "policy_overrides": {},
+      "expected": {
+        "error_contains": "Missing evidence provenance"
+      },
+      "remove_evidence_fields": [
+        "available_inventory_units"
+      ]
+    },
+    {
+      "id": "missing_provenance_03",
+      "critical": true,
+      "case_overrides": {},
+      "policy_overrides": {},
+      "expected": {
+        "error_contains": "Missing evidence provenance"
+      },
+      "remove_evidence_fields": [
+        "confirmed_inbound_units"
+      ]
+    },
+    {
+      "id": "missing_provenance_04",
+      "critical": true,
+      "case_overrides": {},
+      "policy_overrides": {},
+      "expected": {
+        "error_contains": "Missing evidence provenance"
+      },
+      "remove_evidence_fields": [
+        "unit_margin"
+      ]
+    },
+    {
+      "id": "missing_provenance_05",
+      "critical": true,
+      "case_overrides": {},
+      "policy_overrides": {},
+      "expected": {
+        "error_contains": "Missing evidence provenance"
+      },
+      "remove_evidence_fields": [
+        "max_expedite_units"
+      ]
+    },
+    {
+      "id": "negative_input_01",
+      "critical": true,
+      "case_overrides": {
+        "forecast_units": -1
+      },
+      "policy_overrides": {},
+      "expected": {
+        "error_contains": "Negative values are not allowed"
+      }
+    },
+    {
+      "id": "negative_input_02",
+      "critical": true,
+      "case_overrides": {
+        "available_inventory_units": -1
+      },
+      "policy_overrides": {},
+      "expected": {
+        "error_contains": "Negative values are not allowed"
+      }
+    },
+    {
+      "id": "negative_input_03",
+      "critical": true,
+      "case_overrides": {
+        "confirmed_inbound_units": -1
+      },
+      "policy_overrides": {},
+      "expected": {
+        "error_contains": "Negative values are not allowed"
+      }
+    },
+    {
+      "id": "negative_input_04",
+      "critical": true,
+      "case_overrides": {
+        "unit_margin": -1
+      },
+      "policy_overrides": {},
+      "expected": {
+        "error_contains": "Negative values are not allowed"
+      }
+    },
+    {
+      "id": "negative_input_05",
+      "critical": true,
+      "case_overrides": {
+        "max_expedite_units": -1
+      },
+      "policy_overrides": {},
+      "expected": {
+        "error_contains": "Negative values are not allowed"
+      }
+    }
+  ]
+}

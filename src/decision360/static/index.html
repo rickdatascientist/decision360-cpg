@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decision360 CPG — Reference Beta</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <p class="eyebrow">PUBLIC REFERENCE BETA · SYNTHETIC DATA ONLY</p>
+    <h1>Decision360 CPG</h1>
+    <p>Review evidence, compare scenarios, record a human decision, and learn from the outcome.</p>
+  </header>
+
+  <main>
+    <section class="panel warning" aria-labelledby="boundary-title">
+      <h2 id="boundary-title">Product boundary</h2>
+      <p>This reference demonstrates governance and audit flow. It is not validated planning policy and never writes to a planning system.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="access-title">
+      <h2 id="access-title">Session access</h2>
+      <label>API key <input id="api-key" type="password" autocomplete="off" placeholder="Configured server-side key"></label>
+      <button id="save-key" type="button">Use for this tab</button>
+      <span id="access-status" role="status"></span>
+      <p class="hint">Use an operator key to evaluate and record outcomes; switch to a separate approver key for the human decision.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="case-title">
+      <h2 id="case-title">Synthetic SKU shortfall case</h2>
+      <form id="case-form">
+        <div class="grid">
+          <label>Case ID <input name="case_id" value="SYNTH-WEB-001" required></label>
+          <label>SKU <input name="sku" value="SYNTHETIC-SKU-A" required></label>
+          <label>Period <input name="period" value="2026-W30" required></label>
+          <label>Forecast units <input name="forecast_units" type="number" min="0" value="1000" required></label>
+          <label>Available inventory <input name="available_inventory_units" type="number" min="0" value="700" required></label>
+          <label>Confirmed inbound <input name="confirmed_inbound_units" type="number" min="0" value="100" required></label>
+          <label>Unit margin <input name="unit_margin" type="number" min="0" step="0.01" value="12" required></label>
+          <label>Expedite unit cost <input name="expedite_unit_cost" type="number" min="0" step="0.01" value="4" required></label>
+          <label>Maximum expedite units <input name="max_expedite_units" type="number" min="0" value="150" required></label>
+          <label>Minimum shortfall ratio <input name="min_shortfall_ratio" type="number" min="0" step="0.01" value="0.05" required></label>
+          <label>Minimum net benefit <input name="min_net_benefit" type="number" min="0" step="0.01" value="0" required></label>
+        </div>
+        <button type="submit">Evaluate decision</button>
+      </form>
+      <p id="case-error" class="error" role="alert"></p>
+    </section>
+
+    <section id="result-panel" class="panel hidden" aria-labelledby="result-title">
+      <h2 id="result-title">Decision review</h2>
+      <div id="summary" class="summary-grid"></div>
+      <h3>Scenarios</h3>
+      <div id="scenarios" class="scenario-grid"></div>
+      <h3>Assumptions</h3>
+      <ul id="assumptions"></ul>
+      <div class="approval-grid">
+        <label>Decision rationale <textarea id="rationale" rows="3" placeholder="Required for approval or rejection"></textarea></label>
+        <div>
+          <button id="approve" type="button">Approve recommendation</button>
+          <button id="reject" class="secondary" type="button">Reject recommendation</button>
+        </div>
+      </div>
+      <p id="decision-status" role="status"></p>
+    </section>
+
+    <section id="outcome-panel" class="panel hidden" aria-labelledby="outcome-title">
+      <h2 id="outcome-title">Record realized outcome</h2>
+      <div class="grid">
+        <label>Actual recovered units <input id="actual-units" type="number" min="0" value="0"></label>
+        <label>Realized net value <input id="actual-value" type="number" step="0.01" value="0"></label>
+        <label>Outcome note <input id="outcome-note" value="Synthetic reference outcome"></label>
+      </div>
+      <button id="record-outcome" type="button">Record outcome</button>
+      <p id="outcome-status" role="status"></p>
+    </section>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>

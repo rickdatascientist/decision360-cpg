@@ -4,8 +4,11 @@ __pycache__/
 *.egg-info/
 node_modules/
 dist/
+build/
 .env
 .env.*
 !.env.example
 *.sqlite3
 tmp/
+var/
+benchmark-report*.json

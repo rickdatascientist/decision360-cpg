@@ -4,18 +4,32 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "decision360-cpg"
-version = "0.1.0"
+version = "0.2.0"
 description = "Deterministic, evidence-traceable decision spine for Decision360 CPG"
 requires-python = ">=3.10"
 license = { text = "Proprietary - public review only" }
 authors = [{ name = "RicksBiz" }]
-dependencies = []
+dependencies = [
+  "fastapi==0.139.0",
+  "uvicorn==0.51.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx2==2.7.0",
+  "pytest==9.1.1",
+]
 
 [project.scripts]
 decision360 = "decision360.cli:main"
+decision360-api = "decision360.api:run"
+decision360-maintenance = "decision360.maintenance:main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+decision360 = ["static/*"]
