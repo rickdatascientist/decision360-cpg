@@ -8,15 +8,32 @@
 </head>
 <body>
   <header>
-    <p class="eyebrow">PUBLIC REFERENCE BETA · SYNTHETIC DATA ONLY</p>
-    <h1>Decision360 CPG</h1>
-    <p>Review evidence, compare scenarios, record a human decision, and learn from the outcome.</p>
+    <div class="hero-meta"><p class="eyebrow">PUBLIC RESEARCH PREVIEW · SYNTHETIC DATA ONLY</p><span class="release-badge">v0.2 reference</span></div>
+    <h1>Make the exception<br>explain itself.</h1>
+    <p class="hero-copy">A governed decision workspace for CPG planning research. See what changed, compare the baseline, challenge the evidence, and keep the human decision on record.</p>
   </header>
 
   <main>
     <section class="panel warning" aria-labelledby="boundary-title">
       <h2 id="boundary-title">Product boundary</h2>
       <p>This reference demonstrates governance and audit flow. It is not validated planning policy and never writes to a planning system.</p>
+    </section>
+
+    <section class="panel workflow-lab" aria-labelledby="workflow-title">
+      <div class="section-heading">
+        <div><p class="kicker">RESEARCH-BACKED SIMULATIONS</p><h2 id="workflow-title">Choose the decision, not the dashboard</h2></div>
+        <p>Five hypotheses distilled from public case studies and practitioner anecdotes. Only shortfall intervention has executable reference logic today.</p>
+      </div>
+      <div id="workflow-nav" class="workflow-nav" role="group" aria-label="Simulated decision workflows"></div>
+      <article id="workflow-brief" class="workflow-brief" aria-live="polite">
+        <div><p class="kicker">ACTIVE WORKFLOW</p><h3 id="workflow-brief-title"></h3><p id="workflow-question" class="decision-question"></p></div>
+        <dl class="brief-grid">
+          <div><dt>Trigger</dt><dd id="workflow-trigger"></dd></div>
+          <div><dt>Research basis</dt><dd id="workflow-sources"></dd></div>
+          <div><dt>What would disprove it?</dt><dd id="workflow-falsifier"></dd></div>
+        </dl>
+        <p id="workflow-status" class="workflow-status"></p>
+      </article>
     </section>
 
     <section class="panel" aria-labelledby="access-title">
@@ -27,7 +44,8 @@
       <p class="hint">Use an operator key to evaluate and record outcomes; switch to a separate approver key for the human decision.</p>
     </section>
 
-    <section class="panel" aria-labelledby="case-title">
+    <section id="case-panel" class="panel" aria-labelledby="case-title">
+      <p class="kicker">GOVERNED REFERENCE FLOW</p>
       <h2 id="case-title">Synthetic SKU shortfall case</h2>
       <form id="case-form">
         <div class="grid">
@@ -46,6 +64,13 @@
         <button type="submit">Evaluate decision</button>
       </form>
       <p id="case-error" class="error" role="alert"></p>
+    </section>
+
+    <section id="prototype-panel" class="panel prototype-panel hidden" aria-labelledby="prototype-title">
+      <p class="kicker">PROTOTYPE SPECIFICATION</p>
+      <h2 id="prototype-title">Research flow ready; decision engine intentionally absent</h2>
+      <p id="prototype-copy"></p>
+      <div class="prototype-callout"><strong>Why the pause matters</strong><span>We will use this screen to challenge evidence, ownership, and alternatives before encoding a rule that could look precise and still be wrong.</span></div>
     </section>
 
     <section id="result-panel" class="panel hidden" aria-labelledby="result-title">

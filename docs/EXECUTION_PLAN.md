@@ -11,6 +11,8 @@ The `v0.2.0-reference` implementation completes the synthetic one-workflow porti
 
 This does not close G0, G3, G4, or G5. Practitioner evidence, five reviewed workflows, a real Gemini/ADK comparison, unguided completion, external security review, cloud operations, and named human approval remain ordered gates. The next authorized product task is W0 practitioner/workflow truth; reference code must not be generalized into five invented workflows.
 
+Public proxy research now authorizes a five-workflow **simulation UI** as a research instrument. It does not authorize describing those workflows as supported, validated, or production-ready. Each simulation must retain its evidence IDs and interview falsifier so the prototype is designed to elicit disagreement rather than manufacture confirmation.
+
 ## Product objective
 
 Deliver a public beta in which relevant supply-chain practitioners can complete five validated decision workflows without founder guidance, inspect the supporting evidence and alternatives, make or reject a recommendation, and record the realized outcome.
