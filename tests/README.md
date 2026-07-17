@@ -1,5 +1,9 @@
 # Tests and evaluation
 
-Tests for Decision360 CPG live here. Include business-rule reconciliation, unsafe or ambiguous cases, missing data, traceability, cost/latency where relevant, and regression cases from observed failures.
+- `unit/` — isolated calculations, policies, provenance, ledger invariants, and benchmark logic
+- `component/` — package and command-line behavior
+- `integration/` — evaluation, approval, outcome, and persistence lifecycle
 
-Critical safety or governance failures must remain visible and cannot be averaged away by a composite score.
+Workflow, agent evaluation, security, performance/cost, recovery, browser/accessibility, and human-validation suites will be added with the corresponding product layers. Critical safety or governance failures remain visible and cannot be averaged away by a composite score.
+
+See [`docs/TEST_STRATEGY.md`](../docs/TEST_STRATEGY.md) for level definitions, thresholds, and release gates.

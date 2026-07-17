@@ -1,0 +1,70 @@
+{
+  "suite_id": "deterministic-reference-v1",
+  "description": "Synthetic functional and governance benchmark for the first Decision360 reference workflow.",
+  "base_case": "../examples/case_shortfall.json",
+  "repeats": 100,
+  "thresholds": {
+    "pass_rate": 1.0,
+    "critical_pass_rate": 1.0,
+    "p95_ms": 50.0
+  },
+  "cases": [
+    {
+      "id": "economic_expedite",
+      "critical": true,
+      "case_overrides": {},
+      "policy_overrides": {},
+      "expected": {"action": "expedite", "shortfall_units": "200", "action_units": "150", "reason": "POSITIVE_REFERENCE_NET_BENEFIT"}
+    },
+    {
+      "id": "no_shortfall",
+      "critical": true,
+      "case_overrides": {"forecast_units": 700},
+      "policy_overrides": {},
+      "expected": {"action": "monitor", "shortfall_units": "0", "action_units": "0", "reason": "NO_PROJECTED_SHORTFALL"}
+    },
+    {
+      "id": "below_policy_threshold",
+      "critical": false,
+      "case_overrides": {"forecast_units": 820},
+      "policy_overrides": {"min_shortfall_ratio": 0.05},
+      "expected": {"action": "monitor", "shortfall_units": "20", "action_units": "0", "reason": "SHORTFALL_BELOW_POLICY_THRESHOLD"}
+    },
+    {
+      "id": "expedite_disabled",
+      "critical": true,
+      "case_overrides": {},
+      "policy_overrides": {"allow_expedite": false},
+      "expected": {"action": "monitor", "shortfall_units": "200", "action_units": "0", "reason": "EXPEDITE_DISABLED_BY_POLICY"}
+    },
+    {
+      "id": "no_expedite_capacity",
+      "critical": false,
+      "case_overrides": {"max_expedite_units": 0},
+      "policy_overrides": {},
+      "expected": {"action": "monitor", "shortfall_units": "200", "action_units": "0", "reason": "NO_EXPEDITE_CAPACITY"}
+    },
+    {
+      "id": "uneconomic_expedite",
+      "critical": true,
+      "case_overrides": {"unit_margin": 2, "expedite_unit_cost": 4},
+      "policy_overrides": {},
+      "expected": {"action": "monitor", "shortfall_units": "200", "action_units": "0", "reason": "EXPEDITE_NOT_ECONOMIC_UNDER_REFERENCE_ASSUMPTIONS"}
+    },
+    {
+      "id": "missing_provenance",
+      "critical": true,
+      "case_overrides": {},
+      "policy_overrides": {},
+      "remove_evidence_fields": ["max_expedite_units"],
+      "expected": {"error_contains": "Missing evidence provenance"}
+    },
+    {
+      "id": "negative_input",
+      "critical": true,
+      "case_overrides": {"forecast_units": -1},
+      "policy_overrides": {},
+      "expected": {"error_contains": "Negative values are not allowed"}
+    }
+  ]
+}
