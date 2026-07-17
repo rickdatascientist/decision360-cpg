@@ -46,6 +46,16 @@ If the console-script directory is not on your `PATH`, use `python -m decision36
 
 See [`docs/PRD.md`](docs/PRD.md) for the hypothesis and acceptance criteria and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for calculations, invariants, and deferred scope.
 
+## Active execution and quality plan
+
+- [`docs/EXECUTION_PLAN.md`](docs/EXECUTION_PLAN.md) — workstreams, dependencies, gates, ordered backlog, and definition of done
+- [`docs/TEST_STRATEGY.md`](docs/TEST_STRATEGY.md) — test levels, benchmark families, thresholds, and release lanes
+- [`benchmarks/suite.json`](benchmarks/suite.json) — executable deterministic reference benchmark
+
+```bash
+python -m decision360.benchmark --suite benchmarks/suite.json --fail-on-threshold
+```
+
 ## Licensing
 
 The repository is public for review, but no reuse license has been selected yet. Do not assume permission to reuse code or content.

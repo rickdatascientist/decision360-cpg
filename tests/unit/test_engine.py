@@ -10,7 +10,7 @@ from decision360.ledger import DecisionLedger, LedgerStateError
 from decision360.models import Action, DecisionCase, Policy
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def sample_case() -> DecisionCase:
