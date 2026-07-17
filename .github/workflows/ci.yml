@@ -1,0 +1,38 @@
+name: Decision360 CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  deterministic-spine:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install package
+        run: python -m pip install -e .
+
+      - name: Compile
+        run: python -m compileall -q src tests
+
+      - name: Test
+        run: python -m unittest discover -s tests -v
+
+      - name: Run synthetic reference case
+        run: decision360 evaluate examples/case_shortfall.json

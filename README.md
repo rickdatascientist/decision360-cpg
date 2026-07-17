@@ -30,6 +30,22 @@ Shared contracts may be consumed as versioned dependencies later. Product code, 
 
 **Kill or narrow rule:** If relevant users cannot independently complete five workflows, narrow the product until they can.
 
+## First deterministic slice
+
+The first working slice evaluates one fully synthetic SKU shortfall without an AI model. It compares no action with a configurable expedite scenario, emits explicit reason codes, requires human approval, and records realized outcomes in an append-only JSONL ledger.
+
+This is reference logic for product learning—not validated planning policy or a customer value claim.
+
+```bash
+python -m pip install -e .
+python -m unittest discover -s tests -v
+decision360 evaluate examples/case_shortfall.json --ledger var/decision-ledger.jsonl
+```
+
+If the console-script directory is not on your `PATH`, use `python -m decision360.cli evaluate examples/case_shortfall.json`.
+
+See [`docs/PRD.md`](docs/PRD.md) for the hypothesis and acceptance criteria and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for calculations, invariants, and deferred scope.
+
 ## Licensing
 
 The repository is public for review, but no reuse license has been selected yet. Do not assume permission to reuse code or content.

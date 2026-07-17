@@ -1,0 +1,24 @@
+{
+  "case_id": "SYNTH-2026-001",
+  "sku": "SYNTHETIC-SKU-A",
+  "period": "2026-W30",
+  "forecast_units": 1000,
+  "available_inventory_units": 700,
+  "confirmed_inbound_units": 100,
+  "unit_margin": 12,
+  "expedite_unit_cost": 4,
+  "max_expedite_units": 150,
+  "policy": {
+    "min_shortfall_ratio": 0.05,
+    "min_net_benefit": 0,
+    "allow_expedite": true
+  },
+  "evidence": [
+    {"field": "forecast_units", "source": "synthetic://forecast/v1", "observed_at": "2026-07-17T09:00:00Z"},
+    {"field": "available_inventory_units", "source": "synthetic://inventory/v1", "observed_at": "2026-07-17T09:00:00Z"},
+    {"field": "confirmed_inbound_units", "source": "synthetic://inbound/v1", "observed_at": "2026-07-17T09:00:00Z"},
+    {"field": "unit_margin", "source": "synthetic://economics/v1", "observed_at": "2026-07-17T09:00:00Z"},
+    {"field": "expedite_unit_cost", "source": "synthetic://economics/v1", "observed_at": "2026-07-17T09:00:00Z"},
+    {"field": "max_expedite_units", "source": "synthetic://capacity/v1", "observed_at": "2026-07-17T09:00:00Z"}
+  ]
+}
