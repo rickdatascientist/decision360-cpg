@@ -1,61 +1,70 @@
 # Decision360 CPG
 
-> Status: **pre-alpha** · 90-day target: **Public beta target**
+> Status: **technical reference beta** — synthetic, governed, and publicly reviewable; not validated planning policy or a production service.
 
-A governed decision layer above or alongside systems of record and planning engines.
+Decision360 CPG is a decision-review layer for a synthetic inventory-shortfall workflow. It evaluates an explicit expedite policy, presents alternatives and assumptions, requires an authorized human decision, records outcomes, and preserves a tamper-evident audit trail.
 
-## Product decision
+## What is working
 
-- **Primary buyer:** CSCO / VP Demand Planning
-- **Core decision:** Which demand or inventory intervention should we take, with what confidence and value?
-- **Platform foundation:** BigQuery, Gemini, ADK, Cloud Run or Agent Runtime, with explicit hybrid-cloud interoperability.
-- **Distinct contribution:** Decision value, probabilistic scenarios, human approval, outcome learning, and evidence traceability.
+- deterministic Decimal-based evaluation with evidence provenance and reason codes;
+- authenticated FastAPI service with operator, approver, viewer, and auditor roles;
+- transactional SQLite persistence, schema versioning, idempotent writes, and audit integrity checks;
+- browser decision-review interface for evaluation, approval/rejection, and outcome capture;
+- allow-listed analysis tools that refuse approvals, outcomes, and external writes;
+- reproducible 60-case qualification benchmark plus unit, component, integration, security, performance, concurrency, tamper, and backup/restore tests;
+- non-root container image, health check, persistent volume, and operations/security runbooks.
 
-## Public proof standard
+## Public proof boundary
 
-This repository is public for transparent product development and review. It contains no confidential employer, customer, interviewee, or production data. Claims remain hypotheses until linked evidence exists in `evidence/`.
+This repository contains only synthetic or independently authored material. The calculations are reference assumptions for engineering validation. They are not a demand-planning accuracy claim, a customer-value claim, or evidence that the workflow is useful to practitioners. The product gate still requires interviews, five approved real workflows, three unguided reviewers, security review, and named human release approval.
 
-## Repository boundaries
+## Run locally
 
-- `docs/` — charter, roadmap, architecture decisions, and product decisions
-- `evidence/` — public-source provenance, validation summaries, and claim limits
-- `src/` — implementation owned by this product
-- `tests/` — product-specific acceptance and evaluation tests
-
-Shared contracts may be consumed as versioned dependencies later. Product code, evidence, and decisions must not be copied between repositories without provenance.
-
-## Current gate
-
-**Validation minimum:** Six practitioner interviews, three repeat reviewers, and three unguided tests across five workflows.
-
-**Kill or narrow rule:** If relevant users cannot independently complete five workflows, narrow the product until they can.
-
-## First deterministic slice
-
-The first working slice evaluates one fully synthetic SKU shortfall without an AI model. It compares no action with a configurable expedite scenario, emits explicit reason codes, requires human approval, and records realized outcomes in an append-only JSONL ledger.
-
-This is reference logic for product learning—not validated planning policy or a customer value claim.
+Python 3.10 or later is required.
 
 ```bash
-python -m pip install -e .
-python -m unittest discover -s tests -v
-decision360 evaluate examples/case_shortfall.json --ledger var/decision-ledger.jsonl
+python -m pip install -e ".[dev]"
 ```
 
-If the console-script directory is not on your `PATH`, use `python -m decision360.cli evaluate examples/case_shortfall.json`.
+Set an API-key map in the environment. The values in `.env.example` are local examples and must be replaced for any shared environment.
 
-See [`docs/PRD.md`](docs/PRD.md) for the hypothesis and acceptance criteria and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for calculations, invariants, and deferred scope.
+PowerShell:
 
-## Active execution and quality plan
+```powershell
+$env:DECISION360_API_KEYS='{"local-operator-key-change-me":{"actor":"Local Operator","roles":["operator"]},"local-approver-key-change-me":{"actor":"Local Approver","roles":["approver"]},"local-auditor-key-change-me":{"actor":"Local Auditor","roles":["auditor"]}}'
+python -m decision360.api
+```
 
-- [`docs/EXECUTION_PLAN.md`](docs/EXECUTION_PLAN.md) — workstreams, dependencies, gates, ordered backlog, and definition of done
-- [`docs/TEST_STRATEGY.md`](docs/TEST_STRATEGY.md) — test levels, benchmark families, thresholds, and release lanes
-- [`benchmarks/suite.json`](benchmarks/suite.json) — executable deterministic reference benchmark
+Open `http://127.0.0.1:8000`. API documentation is available at `/docs`; health and audit-chain status are public at `/healthz`.
+
+Container:
 
 ```bash
-python -m decision360.benchmark --suite benchmarks/suite.json --fail-on-threshold
+export DECISION360_API_KEYS='{"replace-with-long-secret":{"actor":"Operator","roles":["operator"]}}'
+docker compose up --build
 ```
+
+## Verify the technical beta
+
+```bash
+python -m pytest -q
+python -m decision360.benchmark --suite benchmarks/suite_60.json --output benchmark-report-60.json --fail-on-threshold
+python -m compileall -q src tests
+```
+
+The qualification gate requires all 60 cases and all critical cases to pass, with engine p95 below 50 ms. The API performance test requires p95 below 500 ms in the local reference environment.
+
+## Repository map
+
+- `src/decision360/` — engine, service, persistence, authentication, tools, UI, and maintenance utilities
+- `benchmarks/` — immutable reference suite and deterministic 60-case suite generator
+- `tests/` — unit through performance/security qualification
+- `docs/EXECUTION_PLAN.md` — ordered product gates and definition of done
+- `docs/TEST_STRATEGY.md` — L0–L7 quality model and thresholds
+- `docs/OPERATIONS.md` — deployment, backup, restore, incident, and rollback procedures
+- `docs/SECURITY.md` — controls, trust boundaries, and known limitations
+- `evidence/` — public evidence and claim limits
 
 ## Licensing
 
-The repository is public for review, but no reuse license has been selected yet. Do not assume permission to reuse code or content.
+The repository is public for review, but no reuse license has been selected. Do not assume permission to reuse code or content.

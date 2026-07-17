@@ -22,7 +22,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install package
-        run: python -m pip install -e .
+        run: python -m pip install -e ".[dev]"
 
       - name: Compile contracts and tests
         run: python -m compileall -q src tests
@@ -43,7 +43,7 @@ jobs:
           cache: pip
 
       - name: Install package
-        run: python -m pip install -e .
+        run: python -m pip install -e ".[dev]"
 
       - name: Unit tests
         run: python -m unittest discover -s tests/unit -v
@@ -60,13 +60,19 @@ jobs:
           python-version: "3.12"
 
       - name: Install package
-        run: python -m pip install -e .
+        run: python -m pip install -e ".[dev]"
 
       - name: Component tests
         run: python -m unittest discover -s tests/component -v
 
       - name: Integration tests
         run: python -m unittest discover -s tests/integration -v
+
+      - name: Security tests
+        run: python -m unittest discover -s tests/security -v
+
+      - name: Reference performance gate
+        run: python -m unittest discover -s tests/performance -v
 
   deterministic-benchmark:
     runs-on: ubuntu-latest
@@ -80,7 +86,36 @@ jobs:
           python-version: "3.12"
 
       - name: Install package
-        run: python -m pip install -e .
+        run: python -m pip install -e ".[dev]"
 
       - name: Enforce reference thresholds
         run: python -m decision360.benchmark --suite benchmarks/suite.json --output benchmark-report.json --fail-on-threshold
+
+      - name: Enforce 60-case qualification thresholds
+        run: python -m decision360.benchmark --suite benchmarks/suite_60.json --output benchmark-report-60.json --fail-on-threshold
+
+  dependency-security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install and audit runtime dependencies
+        run: |
+          python -m pip install -e .
+          python -m pip install pip-audit==2.10.1
+          python -m pip_audit --strict --requirement requirements-runtime.txt --no-deps --disable-pip
+
+  container-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Build non-root reference image
+        run: docker build --tag decision360-cpg:ci .

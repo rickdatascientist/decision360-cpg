@@ -5,6 +5,12 @@ Owner: Rick<br>
 Engineering agent: Codex<br>
 Operating principle: evidence before scope, deterministic rules before agents, human authority before action
 
+## Technical progress snapshot — 2026-07-17
+
+The `v0.2.0-reference` implementation completes the synthetic one-workflow portions of W1–W6: deterministic contracts, authenticated API, durable audit store, decision-review UI, governed read/analysis tools, 60-case qualification suite, security/performance/recovery tests, container packaging, and operations documentation. See `docs/TECHNICAL_BETA_REPORT.md`.
+
+This does not close G0, G3, G4, or G5. Practitioner evidence, five reviewed workflows, a real Gemini/ADK comparison, unguided completion, external security review, cloud operations, and named human approval remain ordered gates. The next authorized product task is W0 practitioner/workflow truth; reference code must not be generalized into five invented workflows.
+
 ## Product objective
 
 Deliver a public beta in which relevant supply-chain practitioners can complete five validated decision workflows without founder guidance, inspect the supporting evidence and alternatives, make or reject a recommendation, and record the realized outcome.

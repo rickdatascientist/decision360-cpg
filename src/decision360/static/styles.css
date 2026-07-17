@@ -1,0 +1,36 @@
+:root {
+  color-scheme: light;
+  --ink: #102a43;
+  --muted: #486581;
+  --line: #d9e2ec;
+  --surface: #ffffff;
+  --canvas: #f0f4f8;
+  --primary: #0b6e4f;
+  --primary-dark: #074c38;
+  --warn-bg: #fff8e1;
+  --warn: #7a4b00;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--canvas); color: var(--ink); }
+header { padding: 3rem max(1.25rem, calc((100% - 1100px) / 2)); background: #0b253a; color: white; }
+header h1 { margin: .25rem 0; font-size: clamp(2rem, 5vw, 3.75rem); }
+header p { max-width: 760px; }
+.eyebrow { letter-spacing: .12em; font-size: .78rem; font-weight: 700; color: #9fb3c8; }
+main { width: min(1100px, calc(100% - 2rem)); margin: 2rem auto 5rem; display: grid; gap: 1.25rem; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem; box-shadow: 0 8px 28px rgba(16,42,67,.06); }
+.warning { background: var(--warn-bg); border-color: #f7d070; color: var(--warn); }
+.grid, .summary-grid, .scenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
+label { display: grid; gap: .35rem; color: var(--muted); font-weight: 600; }
+input, textarea { width: 100%; padding: .7rem .8rem; border: 1px solid #bcccdc; border-radius: 8px; font: inherit; color: var(--ink); background: white; }
+input:focus, textarea:focus, button:focus { outline: 3px solid #9fb3c8; outline-offset: 2px; }
+button { margin-top: 1rem; border: 0; border-radius: 8px; padding: .75rem 1rem; font: inherit; font-weight: 700; background: var(--primary); color: white; cursor: pointer; }
+button:hover { background: var(--primary-dark); }
+button.secondary { background: #627d98; margin-left: .5rem; }
+.metric, .scenario { border: 1px solid var(--line); border-radius: 10px; padding: 1rem; }
+.metric strong { display: block; font-size: 1.45rem; margin-top: .25rem; }
+.scenario h4 { margin-top: 0; text-transform: capitalize; }
+.approval-grid { margin-top: 1rem; display: grid; gap: .75rem; }
+.hidden { display: none; }
+.error { color: #b42318; font-weight: 700; }
+@media (max-width: 600px) { header { padding-top: 2rem; } .panel { padding: 1rem; } button.secondary { margin-left: 0; } }

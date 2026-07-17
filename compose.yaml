@@ -1,0 +1,13 @@
+services:
+  decision360:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DECISION360_API_KEYS: "${DECISION360_API_KEYS:?Set DECISION360_API_KEYS in the environment}"
+    volumes:
+      - decision360-data:/app/var
+    restart: unless-stopped
+
+volumes:
+  decision360-data:
