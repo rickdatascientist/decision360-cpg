@@ -42,7 +42,8 @@ class ApiComponentTests(unittest.TestCase):
         self.assertEqual(self.client.get("/healthz").json(), {"status": "ok", "audit_integrity": True})
         response = self.client.get("/")
         self.assertEqual(response.status_code, 200)
-        self.assertIn("PUBLIC REFERENCE BETA", response.text)
+        self.assertIn("PUBLIC RESEARCH PREVIEW", response.text)
+        self.assertIn("RESEARCH-BACKED SIMULATIONS", response.text)
 
     def test_authentication_and_role_boundaries(self) -> None:
         response = self.client.post(

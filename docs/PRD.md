@@ -37,3 +37,9 @@ Make the calculation, evidence, alternatives, assumptions, approval, and realize
 6. What failure would make this workflow unsafe or commercially irrelevant?
 
 The answers must replace or remove reference assumptions before this slice is described as buyer-validated.
+
+## Proxy-research gate
+
+Public research may be used to create transparent synthetic personas, workflows, and UI acceptance tests before interviews. The 2026-07-17 proxy dossier passes this limited gate for prototype work and defines five simulated workflow hypotheses in `docs/SIMULATED_WORKFLOWS.md`.
+
+This gate does not change the status above: buyer validation remains pending. Public anecdotes are not interviews, case-study outcomes are not our outcomes, and simulated task completion is not evidence of practitioner usefulness.
